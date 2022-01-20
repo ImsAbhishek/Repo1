@@ -1,9 +1,9 @@
-pipeline{
-  any agent
-stages{
-  stage{
-  steps{
-script{
+pipeline { 
+   agent any
+stages {
+  stage {
+  steps {
+script {
 sh 'echo "Hey Abhishek"'
 }
 }}
