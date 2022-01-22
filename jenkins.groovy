@@ -15,9 +15,7 @@ url: 'https://github.com/ImsAbhishek/i-hackon.git']]])
 }}
   stage("Maven Build") {
   steps {
-script {
-sh 'echo "Maven Build"'
-}
+     sh "mvn build"
 }}
    
 stage("sonarqube code anlysis") {
