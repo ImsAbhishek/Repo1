@@ -4,7 +4,7 @@ pipeline {
 stages {
 stage("SCM checkout") {
   steps {
-sh 'SCM checkout"'
+sh 'echo "SCM checkout"'
 script {
 sh 'echo "success"'
 }
