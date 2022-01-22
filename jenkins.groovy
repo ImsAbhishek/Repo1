@@ -10,7 +10,7 @@ checkout([$class: 'GitSCM',
 branches: [[name: '*/master']],
  extensions: [],
  userRemoteConfigs: [[credentialsId: 'github-cred', 
-url: 'https://github.com/ImsAbhishek/Repo1.git']]])
+url: 'https://github.com/ImsAbhishek/i-hackon.git']]])
 
 }}
   stage("Maven Build") {
