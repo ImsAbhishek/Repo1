@@ -5,9 +5,13 @@ stages {
 stage("SCM checkout") {
   steps {
 sh 'echo "SCM checkout"'
-script {
-sh 'echo "success"'
-}
+
+checkout([$class: 'GitSCM', 
+branches: [[name: '*/master']],
+ extensions: [],
+ userRemoteConfigs: [[credentialsId: 'github-cred', 
+url: 'https://github.com/ImsAbhishek/Repo1.git']]])
+
 }}
   stage("Maven Build") {
   steps {
