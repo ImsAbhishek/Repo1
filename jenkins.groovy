@@ -36,8 +36,7 @@ stage("ssh to the server") {
     sh '''
     echo $key
     echo pass $passphrase
-    cat /var/jenkins_home/workspace/.cred/jenkins.pem
-    ssh -i /var/jenkins_home/workspace/.cred/jenkins.pem ec2-user@18.209.46.3
+    ssh -i $key ec2-user@18.209.46.3
     '''
         }
 }
