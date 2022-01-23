@@ -39,7 +39,7 @@ stage("ssh to the server") {
     chmod 777 secret.pem
     cat secret.pem
     ssh -i secret.pem ec2-user@18.209.46.3
-    rm -rf secret.pem
+    #rm -rf secret.pem
     '''
         }
 }
