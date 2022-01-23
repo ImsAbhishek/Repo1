@@ -2,10 +2,15 @@ pipeline {
    agent any
    
    tools {
-      maven 'maven-3.0'
+      maven 'maven-3.3.1'
    }
   
 stages {
+    stage("clean workspace") {
+        steps{
+            cleanWs()
+        }
+    }
 stage("SCM checkout") {
   steps {
 sh 'echo "SCM checkout"'
