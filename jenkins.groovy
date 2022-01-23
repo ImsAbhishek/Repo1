@@ -30,11 +30,11 @@ url: 'https://github.com/narendra9582/maven-project.git']]])
    
 stage("ssh to the server") {
   steps {
-     withCredentials([sshUserPrivateKey(credentialsId: '34.228.12.253',   keyFileVariable: 'key', passphraseVariable: 'passphrase', usernameVariable: 'username')])
-script {
-   sh '''
-   echo $passphrase
-   ssh -i ${passphrase} ec2-user@18.209.46.3
+   script {
+           withCredentials([sshUserPrivateKey(credentialsId: '34.228.12.253',   keyFileVariable: 'key', passphraseVariable: 'passphrase', usernameVariable: 'username')])
+         sh '''
+         echo $passphrase
+         ssh -i ${passphrase} ec2-user@18.209.46.3
    '''
 }
 }}
