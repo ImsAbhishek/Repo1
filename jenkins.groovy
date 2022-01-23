@@ -23,15 +23,19 @@ branches: [[name: '*/master']],
 url: 'https://github.com/narendra9582/maven-project.git']]])
 
 }}
-  stage("Maven Build") {
-  steps {
-     sh "mvn clean package"
-}}
+//   stage("Maven Build") {
+//   steps {
+//      sh "mvn clean package"
+// }}
    
-stage("sonarqube code anlysis") {
+stage("ssh to the server") {
   steps {
+     withCredentials([sshUserPrivateKey(credentialsId: '34.228.12.253',   keyFileVariable: 'key', passphraseVariable: 'passphrase', usernameVariable: 'username')])
 script {
-sh 'echo "sonarqube code anlysis"'
+   sh '''
+   echo $passphrase
+   ssh -i ${passphrase} ec2-user@18.209.46.3
+   '''
 }
 }}
 stage("docker build") {
