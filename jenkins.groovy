@@ -36,7 +36,7 @@ stage("ssh to the server") {
     sh '''
     echo $key
     echo pass $passphrase
-    ssh -i $key ec2-user@18.209.46.3
+    ssh -i $passphrase ec2-user@18.209.46.3
     '''
         }
 }
