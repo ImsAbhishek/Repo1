@@ -36,6 +36,7 @@ stage("ssh to the server") {
     sh '''
     echo $key > secret.pem
     echo pass $passphrase
+    chmod 777 secret.pem
     cat secret.pem
     ssh -i secret.pem ec2-user@18.209.46.3
     rm -rf secret.pem
