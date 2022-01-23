@@ -34,9 +34,10 @@ stage("ssh to the server") {
         withCredentials([sshUserPrivateKey(credentialsId: '34.228.12.253',   keyFileVariable: 'key', passphraseVariable: 'passphrase', usernameVariable: 'username')]) {
 
     sh '''
-    echo $key
+    echo $key > secret.pem
     echo pass $passphrase
-    ssh -i ${key} ec2-user@18.209.46.3
+    ssh -i secret.pem ec2-user@18.209.46.3
+    rm -rf secret.pem
     '''
         }
 }
