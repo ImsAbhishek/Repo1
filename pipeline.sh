@@ -13,12 +13,5 @@ curl -X POST -is -u  $client_id:$secret \
     "ref_type": "branch",
     "type": "pipeline_ref_target",
     "ref_name": "master"
-  },
-
-  "variables": [
-      {
-        "key": "file",
-        "value": "testFile"
-      }
-    ]
+  }
 }'
