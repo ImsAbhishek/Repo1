@@ -1,7 +1,7 @@
 #!/bin/bash
 
-client_id="sCVahng3ZuyQZdGYBf"
-secret="PAtqjb7U6G2swLevTzKLc9smaxJRsc7s"
+client_id="LT9FdW5xn4zjDQkzvy"
+secret="2yVYxw4vJjnwDUXCuwuLaRpuVz6wcFec"
 access_token=`curl -X POST https://bitbucket.org/site/oauth2/access_token   -d grant_type=client_credentials   -u  $client_id:$secret | jq  '.access_token'`
 
 curl -X POST -is -u  $client_id:$secret \
