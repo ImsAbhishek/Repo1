@@ -1,8 +1,6 @@
-image: ubuntu
+image: atlassian/default-image:3
 pipelines:
   default:
     - step:
        script:
-            - apt-get install curl -y
-            - apt-get  install jq -y
             - bash pipeline.sh
