@@ -7,7 +7,7 @@ access_token=`curl -X POST https://bitbucket.org/site/oauth2/access_token   -d g
 curl -X POST -is -u  $client_id:$secret \
    -H "Authorization: Bearer $access_token" \
   -H 'Content-Type: application/json' \
- https://api.bitbucket.org/2.0/repositories/MyGlamm/R&D/test2/pipelines/ \
+ https://api.bitbucket.org/2.0/repositories/MyGlamm/test2/pipelines/ \
  -d '{
   "target": {
     "ref_type": "branch",
