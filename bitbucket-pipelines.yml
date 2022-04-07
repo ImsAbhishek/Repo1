@@ -1,6 +1,8 @@
-image: alpine
+image: ubuntu
 pipelines:
   default:
     - step:
        script:
+            - apt-get install curl -y
+            - apt-get  install jq -y
             - bash pipeline.sh
