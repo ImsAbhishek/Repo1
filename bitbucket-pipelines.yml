@@ -11,4 +11,5 @@ pipelines:
       - step:
           name: 'demo file'
           script:
-            - echo $file
+            - javac $file.java
+            - java $file  
