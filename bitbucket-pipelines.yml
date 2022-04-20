@@ -9,6 +9,7 @@ pipelines:
   default:
     - parallel:
       - step:
+          image: maven:3.3.9
           name: 'demo file'
           script:
             - javac $file.java
