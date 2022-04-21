@@ -12,6 +12,6 @@ pipelines:
           image: maven:3.3.9
           name: 'Build'
           script:
-            - javac f1/f2/f3/src/Destination.java 
+            - javac $path$file.java 
             
             - java -cp $path $file  
