@@ -12,5 +12,5 @@ pipelines:
           image: maven:3.3.9
           name: 'demo file'
           script:
-            - javac $file.java
+            - javac -d $file.java
             - java $file  
