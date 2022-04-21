@@ -14,4 +14,4 @@ pipelines:
           script:
             - javac f1/f2/f3/src/Destination.java 
             
-            - java f1/f2/f3/src/Destination  
+            - java -cp f1/f2/f3/src/ Destination  
