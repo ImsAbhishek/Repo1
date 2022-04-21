@@ -13,5 +13,5 @@ pipelines:
           name: 'demo file'
           script:
             - javac f1/f2/f3/src/Destination.java 
-            - cd f1/f2/f3/src/
-            - java Destination  
+            
+            - java f1/f2/f3/src/Destination  
