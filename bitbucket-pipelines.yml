@@ -10,7 +10,8 @@ pipelines:
     - parallel:
       - step:
           image: maven:3.3.9
-          name: 'demo file'
+          name: 'Build'
           script:
-            - javac $file.java
-            - java $file  
+            - javac $path$file.java 
+            
+            - java -cp $path $file  
