@@ -3,6 +3,7 @@ branch=dev
 GIT=`which git`
 REPO_DIR=/
 cd ${REPO_DIR}
+${GIT} init
 ss=$(${GIT} ls-remote --heads git@github.com:ImsAbhishek/Repo1.git $branch | wc -l)
 if [[ "$ss" == 0 ]];
 then
