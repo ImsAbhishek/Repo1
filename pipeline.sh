@@ -8,7 +8,11 @@ if [[ "$ss" == 0 ]];
 then
  echo "branch does't exist"
  ${GIT} checkout -b $branch
+else
+    echo "branch exist"
+   ${GIT} checkout $branch
 fi
 ${GIT} add --all .
 ${GIT} commit -m "Test commit"
 ${GIT} push git@github.com:ImsAbhishek/Repo1.git $branch
+    
