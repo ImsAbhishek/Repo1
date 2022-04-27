@@ -1,7 +1,6 @@
-image: ubuntu:latest
+image: atlassian/default-image:1
 pipelines:
   default:
     - step:
        script:
-            - apt-get -y install git
             - bash pipeline.sh
