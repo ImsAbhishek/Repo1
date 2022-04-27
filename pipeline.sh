@@ -1,24 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-client_id="LT9FdW5xn4zjDQkzvy"
-secret="2yVYxw4vJjnwDUXCuwuLaRpuVz6wcFec"
-access_token=`curl -X POST https://bitbucket.org/site/oauth2/access_token   -d grant_type=client_credentials   -u  $client_id:$secret | jq  '.access_token'`
-
-curl -X POST -is -u  $client_id:$secret \
-   -H "Authorization: Bearer $access_token" \
-  -H 'Content-Type: application/json' \
- https://api.bitbucket.org/2.0/repositories/myglamm/test2/pipelines/ \
- -d '{
-  "target": {
-    "ref_type": "branch",
-    "type": "pipeline_ref_target",
-    "ref_name": "master"
-  },
-
-  "variables": [
-      {
-        "key": "file",
-        "value": "testFile"
-      }
-    ]
-}'
+GIT=`which git`
+REPO_DIR=/home/username/Sites/git/repo/
+cd ${REPO_DIR}
+${GIT} add --all .
+${GIT} commit -m "Test commit"
+${GIT} push git@github.com:ImsAbhishek/Repo1.git master
