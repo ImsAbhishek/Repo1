@@ -1,10 +1,10 @@
 #!/bin/sh
-branch=dev
+branch=pd
 GIT=`which git`
-REPO_DIR=/
-cd ${REPO_DIR}
+# REPO_DIR=/
+# cd ${REPO_DIR}
 ${GIT} init
-ss=$(${GIT} ls-remote --heads git@github.com:ImsAbhishek/Repo1.git $branch | wc -l)
+ss=$(${GIT} ls-remote --heads https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch | wc -l)
 if [[ "$ss" == 0 ]];
 then
  echo "branch does't exist"
@@ -15,5 +15,5 @@ else
 fi
 ${GIT} add --all .
 ${GIT} commit -m "Test commit"
-${GIT} push git@github.com:ImsAbhishek/Repo1.git $branch
+${GIT} push https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
     
