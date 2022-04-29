@@ -3,4 +3,4 @@ pipelines:
   default:
     - step:
        script:
-            - bash pipeline.sh
+            - bash pipeline.sh $key
