@@ -14,7 +14,7 @@ else
    ${GIT} checkout $branch
 fi
 ${GIT} add --all .
-${GIT} git reset -- /pipeline.sh
+${GIT} reset -- /pipeline.sh
 ${GIT} commit -m "Test commit"
 ${GIT} push https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
     
