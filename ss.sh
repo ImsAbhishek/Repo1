@@ -14,7 +14,7 @@ else
     echo "branch exist"
    ${GIT} fetch --all
    ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
-  # ${GIT} checkout  $branch
+   ${GIT} checkout -b  $branch
 fi
 ${GIT} add --all .
 ${GIT} commit -m "Test commit"
