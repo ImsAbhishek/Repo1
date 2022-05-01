@@ -13,7 +13,7 @@ then
 else
     echo "branch exist"
    ${GIT} fetch --all
-   ${GIT} checkout -b $branch
+   ${GIT} checkout  $branch
 fi
 ${GIT} add --all .
 ${GIT} commit -m "Test commit"
