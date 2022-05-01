@@ -12,8 +12,8 @@ then
  ${GIT} checkout -b $branch
 else
     echo "branch exist"
-   ${GIT} fetch --all
-   ${GIT} checkout $branch
+  # ${GIT} fetch --all
+   ${GIT} checkout -b $branch
 fi
 ${GIT} add --all .
 ${GIT} commit -m "Test commit"
