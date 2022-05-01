@@ -4,7 +4,7 @@ GIT=`which git`
 # REPO_DIR=/
 # cd ${REPO_DIR}
 ${GIT} init
-ss=$(${GIT} ls-remote --heads https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch | wc -l)
+ss=$(${GIT} ls-remote --heads https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch | wc -l)
 echo "$ss"
 if [[ "$ss" == 0 ]];
 then
@@ -13,9 +13,10 @@ then
 else
     echo "branch exist"
    ${GIT} fetch --all
-   ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
+   ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
    ${GIT} checkout -b  $branch
 fi
-${GIT} add --all .
+ab=$(${GIT} add --all .)
+echo $ab
 ${GIT} commit -m "Test commit"
-${GIT} push https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
+${GIT} push https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
