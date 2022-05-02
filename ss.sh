@@ -1,6 +1,6 @@
 #!/bin/sh
-branch=qq
-key="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"
+branch=qq1
+key="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"
 GIT=`which git`
 # REPO_DIR=/
 # cd ${REPO_DIR}
