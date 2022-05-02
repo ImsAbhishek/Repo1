@@ -1,5 +1,5 @@
 #!/bin/sh
-branch=qq2
+branch=qq3
 key="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"
 GIT=`which git`
 # REPO_DIR=/
