@@ -1,10 +1,11 @@
 #!/bin/sh
 branch=qq
+key="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"
 GIT=`which git`
 # REPO_DIR=/
 # cd ${REPO_DIR}
 ${GIT} init
-ss=$(${GIT} ls-remote --heads https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch | wc -l)
+ss=$(${GIT} ls-remote --heads https://ImsAbhishek:$key@github.com/ImsAbhishek/Repo1.git $branch | wc -l)
 echo "$ss"
 if [[ "$ss" == 0 ]];
 then
@@ -14,11 +15,11 @@ else
     echo "branch exist"
   # ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
   # ${GIT} fetch -p
-    ${GIT} pull https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git
+    ${GIT} pull https://ImsAbhishek:$key@github.com/ImsAbhishek/Repo1.git
     ${GIT} checkout  $branch
 fi
  ${GIT} add --all .
 ab=`${GIT} status`
 echo $ab
-${GIT} commit -m "Test commit"
-${GIT} push --force https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
+${GIT} commit -m "Test commit add new file "
+${GIT} push --force https://ImsAbhishek:$key@github.com/ImsAbhishek/Repo1.git $branch
