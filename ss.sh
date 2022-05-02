@@ -13,8 +13,8 @@ then
 else
     echo "branch exist"
    ${GIT} fetch --all
-   ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
-   ${GIT} checkout -b  $branch
+  # ${GIT} push --delete https://ImsAbhishek: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@github.com/ImsAbhishek/Repo1.git $branch
+   ${GIT} checkout  $branch
 fi
  ${GIT} add --all .
 ab=`${GIT} status`
