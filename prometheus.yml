@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'monitor'
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090'] ## IP Address of the localhost
+  - job_name: 'ecs_node_exporter_discovery'
+    ec2_sd_configs:
+      - port: 9100 # referred to nodeExporter exposed port
+        role_arn: arn:aws:iam::616035352558:role/alpha-ecs-hosts
+        filters:
+        - name: tag:aws:autoscaling:groupName
+          values:
+          - preprod-v2-ecs-hosts
+  - job_name: preprod-v2-prometheus-cadvisor
+    ec2_sd_configs:
+      - port: 9200 # referred to cAdvisor exposed port
+        role_arn: arn:aws:iam::616035352558:role/alpha-ecs-hosts
+        filters:
+        - name: tag:aws:autoscaling:groupName
+          values:
+          - preprod-v2-ecs-hosts
+  - job_name: app
+    file_sd_configs:
+      - files:
+          - /mnt/efs/data/ecs_file_sd.yml
+        refresh_interval: 1m
