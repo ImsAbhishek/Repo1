@@ -9,7 +9,7 @@ scrape_configs:
   - job_name: 'ecs_node_exporter_discovery'
     ec2_sd_configs:
       - port: 9100 # referred to nodeExporter exposed port
-        role_arn: arn:aws:iam::616035352558:role/alpha-ecs-hosts
+        profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
         filters:
         - name: tag:aws:autoscaling:groupName
           values:
@@ -17,7 +17,7 @@ scrape_configs:
   - job_name: preprod-v2-prometheus-cadvisor
     ec2_sd_configs:
       - port: 9200 # referred to cAdvisor exposed port
-        role_arn: arn:aws:iam::616035352558:role/alpha-ecs-hosts
+        profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
         filters:
         - name: tag:aws:autoscaling:groupName
           values:
