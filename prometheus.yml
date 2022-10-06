@@ -1,29 +1,58 @@
 global:
   scrape_interval: 5s
+  scrape_timeout: 5s
+  evaluation_interval: 1m
   external_labels:
-    monitor: 'monitor'
+    monitor: monitor
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-    - targets: ['localhost:9090'] ## IP Address of the localhost
-  - job_name: 'ecs_node_exporter_discovery'
-    ec2_sd_configs:
-      - port: 9100 # referred to nodeExporter exposed port
-        profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
-        filters:
-        - name: tag:aws:autoscaling:groupName
-          values:
-          - preprod-v2-ecs-hosts
-  - job_name: preprod-v2-prometheus-cadvisor
-    ec2_sd_configs:
-      - port: 9200 # referred to cAdvisor exposed port
-        profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
-        filters:
-        - name: tag:aws:autoscaling:groupName
-          values:
-          - preprod-v2-ecs-hosts
-  - job_name: app
-    file_sd_configs:
-      - files:
-          - /mnt/efs/data/ecs_file_sd.yml
-        refresh_interval: 1m
+- job_name: prometheus
+  honor_timestamps: true
+  scrape_interval: 5s
+  scrape_timeout: 5s
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets:
+    - localhost:9090
+- job_name: ecs_node_exporter_discovery
+  honor_timestamps: true
+  scrape_interval: 5s
+  scrape_timeout: 5s
+  metrics_path: /metrics
+  scheme: http
+  ec2_sd_configs:
+  - endpoint: ""
+    region: ap-southeast-1
+    profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
+    refresh_interval: 1m
+    port: 9100
+    filters:
+    - name: tag:aws:autoscaling:groupName
+      values:
+      - preprod-v2-ecs-hosts
+- job_name: preprod-v2-prometheus-cadvisor
+  honor_timestamps: true
+  scrape_interval: 5s
+  scrape_timeout: 5s
+  metrics_path: /metrics
+  scheme: http
+  ec2_sd_configs:
+  - endpoint: ""
+    region: ap-southeast-1
+    profile: arn:aws:iam::616035352558:instance-profile/alpha-ecs-hosts
+    refresh_interval: 1m
+    port: 9200
+    filters:
+    - name: tag:aws:autoscaling:groupName
+      values:
+      - preprod-v2-ecs-hosts
+- job_name: app
+  honor_timestamps: true
+  scrape_interval: 5s
+  scrape_timeout: 5s
+  metrics_path: /monitoringLogs
+  scheme: http
+  file_sd_configs:
+  - files:
+    - /mnt/efs/data/ecs_file_sd.yml
+    refresh_interval: 1m
