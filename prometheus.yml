@@ -5,15 +5,7 @@ global:
   external_labels:
     monitor: monitor
 scrape_configs:
-- job_name: prometheus
-  honor_timestamps: true
-  scrape_interval: 5s
-  scrape_timeout: 5s
-  metrics_path: /metrics
-  scheme: http
-  static_configs:
-  - targets:
-    - localhost:9090
+
 - job_name: ecs_node_exporter_discovery
   honor_timestamps: true
   scrape_interval: 5s
